@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div style='margin-top: 20px;' class="container">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Название Валюты</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th style="width: 10%;">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+            </th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      //   document.write("<div style='margin-top: 20px;' class='container'>");
+      //     document.write("<table class='table table-bordered'>");
+      //       document.write("<thead class='thead-dark'>");
+      //         document.write("<tr>");
+      //           document.write("<th>Название Валюты</th>");
+      //           document.write("<th>Цена</th>");
+      //           document.write("<th>Количество</th>");
+      //           document.write("<th style='width: 10%;'>");
+      //             document.write("<button class='btn btn-primary'>");
+      //             document.write("<span class='glyphicon glyphicon-refresh'>");
+      //             document.write("</span>");
+      //             document.write("Refresh");
+      //             document.write("</button>");
+      //           document.write("</th>");
+      //         document.write("</tr>");
+
+
+
+      // $.getJSON(location.href+'data/stock', function(data){
+      //   // var items = {};
+      //   // console.log(items.Val);
+      //   $.each(data, function(key, val){
+      //     // items.push("<tr>");
+      //     // items.push("<td id=''"+ key +"''>"+ val.name +"</td>");
+      //     // items.push("<td id=''"+ key +"''>"+ val.volume +"</td>");
+      //     // items.push("<td id=''"+ key +"''>"+ val.amount +"</td>");
+      //     // document.write("<tr>");
+      //     //       document.write("<td id='"+ key +"'>"+ val.name +"</td>");
+      //     //       document.write("<td id='"+ key +"'>"+ val.volume +"</td>");
+      //     //       document.write("<td id='"+ key +"'>"+ val.amount +"</td>");
+      //     // document.write("</tr>");
+      //     // items.Key = key;
+      //     // items.Val = val;
+
+      //     // console.log(val.volume);
+      //     // console.log(val.amount);
+      //     // console.log(val.currency);
+      //   });
+      // })
+
+
+
+      //       document.write("</thead>");
+      //     document.write("</table>");
+      //   document.write("</div>");
+
+
+
+      $.getJSON(location.href+'data/stock', function(data){
+        var items = [];
+        $('table').html(items.join())
+        items.join()
+        console.log(items.join())
+        console.log(items)
+        $.each(data, function(key, val){
+          items.push("<tr>");
+          items.push("<td id='"+ key +"'>"+ val.name +"</td>");
+          items.push("<td id='"+ key +"'>"+ val.volume +"</td>");
+          items.push("<td id='"+ key +"'>"+ val.amount +"</td>");
+
+          // document.write("<div id=''"+ key +"''>"+ val.name +"</div>");
+          // document.write(val.name );
+          // document.write(val.volume);
+          // document.write(val.amount);
+
+          // console.log(val.name);
+          // console.log(val.volume);
+          // console.log(val.amount);
+          // console.log(val.currency);
+
+          items.push("</tr>");
+        });
+        $("</tbody>", {html: items.join( "" ) }).appendTo("table")
+      })
+    </script>
+
+  </body>
+</html>
